@@ -18,8 +18,7 @@
       </fieldset>
     </div>
     <ol id="users">
-      <li>Qodir</li>
-      <li>qodir</li>
+      <li>Foydalanuchilarning ism shariflari</li>
     </ol>
   </div>
   <script type="text/javascript">
@@ -27,7 +26,15 @@
       const newLi = document.createElement('LI')
       newLi.textContent = userName.value
       users.appendChild(newLi)
+
+      const newButton = document.createElement("SPAN")
+      newLi.appendChild(newButton)
       userName.value = ''
+
+      newButton.onclick = function () {
+        newLi.remove()
+      }
+
     }
     add.onclick = addUser
 
