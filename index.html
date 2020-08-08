@@ -30,6 +30,15 @@
       userName.value = ''
     }
     add.onclick = addUser
+
+    userName.onkeyup = function (event) {
+      if (event.keyCode === 13) {
+        const newLi = document.createElement('LI')
+        newLi.textContent = userName.value
+        users.appendChild(newLi)
+        userName.value = ''
+      }
+    }
   </script>
 </body>
 
