@@ -18,23 +18,27 @@
       </fieldset>
     </div>
     <ol id="users">
-      <li>Foydalanuchilarning ism shariflari</li>
+      <li>O'quvchilarning ism familyasi</li>
     </ol>
   </div>
   <script type="text/javascript">
     function addUser() {
-      const newLi = document.createElement('LI')
-      newLi.textContent = userName.value
-      users.appendChild(newLi)
+      if (userName.value.length > 0) {
 
-      const newButton = document.createElement("SPAN")
-      newLi.appendChild(newButton)
-      userName.value = ''
 
-      newButton.onclick = function () {
-        newLi.remove()
+        const newLi = document.createElement('LI')
+        newLi.textContent = userName.value
+        users.appendChild(newLi)
+
+        const newButton = document.createElement("SPAN")
+        newLi.appendChild(newButton)
+        userName.value = ''
+
+        newButton.onclick = function () {
+          newLi.remove()
+        }
+
       }
-
     }
     add.onclick = addUser
 
@@ -43,6 +47,10 @@
         const newLi = document.createElement('LI')
         newLi.textContent = userName.value
         users.appendChild(newLi)
+        userName.value = ''
+
+        const newButton = document.createElement("SPAN")
+        newLi.appendChild(newButton)
         userName.value = ''
       }
     }
