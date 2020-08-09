@@ -52,6 +52,9 @@
         const newButton = document.createElement("SPAN")
         newLi.appendChild(newButton)
         userName.value = ''
+        newButton.onclick = function () {
+          newLi.remove()
+        }
       }
     }
   </script>
