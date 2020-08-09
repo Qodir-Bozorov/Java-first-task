@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <div id="pagespeaker" class="dates"></div>
   <div class="table">
     <div id="forma">
       <fieldset class="dates">
@@ -22,6 +23,50 @@
     </ol>
   </div>
   <script type="text/javascript">
+    const rec = new webkitSpeechRecognition()
+
+    rec.lang = ('uz-UZ')
+
+    rec.onend = function () {
+      console.log("Suhbat tugadi")
+    }
+
+    const javob = confirm("Suhbat orqali kiritishni xohlaysizmi?")
+
+    function pageSay() {
+      const pageWord = document.createElement('H3')
+      pageWord.textContent = ("Assalomu alaykum. Ma'lumotni kiritgandan so'ng QOʻSHISh 🤓")
+      pagespeaker.appendChild(pageWord)
+    }
+
+    if (javob) {
+      pageSay()
+      rec.start()
+    }
+
+    else {
+      pagespeaker.remove()
+    }
+
+
+
+    rec.onresult = function (event) {
+      const buyruq = event.results[0][0].transcript
+      if (buyruq === "foydalanuvchi ismi") {
+        document.body.style.backgroundColor = "red"
+      }
+    }
+    //   else if (buyruq === 'yashil'){
+    //     document.body.style.backgroundColor = "green"
+    //   }
+    //     else {
+    //       console.log('Tushunmadim')
+    //     }
+    //   }
+
+
+
+    //========------------=============-------------=============
     function addUser() {
       if (userName.value.length > 0) {
 
@@ -37,11 +82,15 @@
         newButton.onclick = function () {
           newLi.remove()
         }
-
       }
     }
     add.onclick = addUser
-
+    rec.onresult = function (event) {
+      const buyruq = event.results[0][0].transcript
+      if (buyruq === "qoʻshish") {
+        addUser()
+      }
+    }
     userName.onkeyup = function (event) {
       if (event.keyCode === 13) {
         const newLi = document.createElement('LI')

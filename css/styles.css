@@ -31,7 +31,7 @@ img {
 
 .table{
   width: 220px;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
 .form-heading {
@@ -135,4 +135,14 @@ transition: box-shadow 300ms;
   background-size: contain;
   background-position: center center;
   
+}
+
+/* ========================================= */
+#pagespeaker {
+  text-align: center;
+  background-color: #3ba666;
+  color: #fff;
+  padding: 20px;
+  border-radius: 33px;
+  margin: 15px;
 }
